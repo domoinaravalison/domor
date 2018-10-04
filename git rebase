@@ -1,0 +1,180 @@
+domoina@domoina-stackerine:~$ ls
+01-first-page     exercice  Modèles          Vidéos
+Bureau            html      Musique
+Documents         Images    Public
+examples.desktop  last      Téléchargements
+domoina@domoina-stackerine:~$ cd exercice
+domoina@domoina-stackerine:~/exercice$ touch git041018b
+domoina@domoina-stackerine:~/exercice$ echo "git"
+git
+domoina@domoina-stackerine:~/exercice$ echo "git">> git
+domoina@domoina-stackerine:~/exercice$ ls
+edit-with-vi      exercise-git-clone   exo041018  git041018b
+exercise-git-add  exercise-git-rebase  git        repo2
+domoina@domoina-stackerine:~/exercice$ rm "git"
+domoina@domoina-stackerine:~/exercice$ ls
+edit-with-vi      exercise-git-clone   exo041018   repo2
+exercise-git-add  exercise-git-rebase  git041018b
+domoina@domoina-stackerine:~/exercice$ echo "domo">> rava
+domoina@domoina-stackerine:~/exercice$ ls
+edit-with-vi      exercise-git-clone   exo041018   rava
+exercise-git-add  exercise-git-rebase  git041018b  repo2
+domoina@domoina-stackerine:~/exercice$ git init domor
+Dépôt Git vide initialisé dans /home/domoina/exercice/domor/.git/
+domoina@domoina-stackerine:~/exercice$ cd domor/
+domoina@domoina-stackerine:~/exercice/domor$ mv ../rava ./
+domoina@domoina-stackerine:~/exercice/domor$ git add 
+Rien de spécifié, rien n'a été ajouté.
+Vous vouliez sûrement dire 'git add .' ?
+domoina@domoina-stackerine:~/exercice/domor$ git add domor
+fatal: le chemin 'domor' ne correspond à aucun fichier
+domoina@domoina-stackerine:~/exercice/domor$ git add rava
+domoina@domoina-stackerine:~/exercice/domor$ ls
+rava
+domoina@domoina-stackerine:~/exercice/domor$ git status
+Sur la branche master
+
+Aucun commit
+
+Modifications qui seront validées :
+  (utilisez "git rm --cached <fichier>..." pour désindexer)
+
+	nouveau fichier : rava
+
+domoina@domoina-stackerine:~/exercice/domor$ git commit 
+Abandon de la validation dû à un message de validation vide.
+domoina@domoina-stackerine:~/exercice/domor$ git commit -m "test"
+[master (commit racine) d02b670] test
+ 1 file changed, 1 insertion(+)
+ create mode 100644 rava
+domoina@domoina-stackerine:~/exercice/domor$ git push
+fatal: Pas de destination pour pousser.
+Spécifiez une URL depuis la ligne de commande ou configurez un dépôt distant en utilisant
+
+    git remote add <nom> <url>
+
+et poussez alors en utilisant le dépôt distant
+
+    git push <nom>
+
+domoina@domoina-stackerine:~/exercice/domor$ git remote add origin https://github.com/domoinaravalison/domor.git
+domoina@domoina-stackerine:~/exercice/domor$ git push
+fatal: La branche courante master n'a pas de branche amont.
+Pour pousser la branche courante et définir la distante comme amont, utilisez
+
+    git push --set-upstream origin master
+
+domoina@domoina-stackerine:~/exercice/domor$ git push -u
+fatal: La branche courante master n'a pas de branche amont.
+Pour pousser la branche courante et définir la distante comme amont, utilisez
+
+    git push --set-upstream origin master
+
+domoina@domoina-stackerine:~/exercice/domor$ git push --set-upstream origin master
+Username for 'https://github.com': domoinaravalison
+Password for 'https://domoinaravalison@github.com': 
+Décompte des objets: 3, fait.
+Écriture des objets: 100% (3/3), 211 bytes | 211.00 KiB/s, fait.
+Total 3 (delta 0), reused 0 (delta 0)
+remote: 
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/domoinaravalison/domor/pull/new/master
+remote: 
+To https://github.com/domoinaravalison/domor.git
+ * [new branch]      master -> master
+La branche 'master' est paramétrée pour suivre la branche distante 'master' depuis 'origin'.
+domoina@domoina-stackerine:~/exercice/domor$ git checkout -b domob
+Basculement sur la nouvelle branche 'domob'
+domoina@domoina-stackerine:~/exercice/domor$ echo "hey"
+hey
+domoina@domoina-stackerine:~/exercice/domor$ echo "hey">heyb
+domoina@domoina-stackerine:~/exercice/domor$ ls
+heyb  rava
+domoina@domoina-stackerine:~/exercice/domor$ git status
+Sur la branche domob
+Fichiers non suivis:
+  (utilisez "git add <fichier>..." pour inclure dans ce qui sera validé)
+
+	heyb
+
+aucune modification ajoutée à la validation mais des fichiers non suivis sont présents (utilisez "git add" pour les suivre)
+domoina@domoina-stackerine:~/exercice/domor$ git add heyb
+domoina@domoina-stackerine:~/exercice/domor$ git commit "test"
+error: pathspec 'test' did not match any file(s) known to git.
+domoina@domoina-stackerine:~/exercice/domor$ git commit -m"test"
+[domob e925b78] test
+ 1 file changed, 1 insertion(+)
+ create mode 100644 heyb
+domoina@domoina-stackerine:~/exercice/domor$ git status
+Sur la branche domob
+rien à valider, la copie de travail est propre
+domoina@domoina-stackerine:~/exercice/domor$ git pull
+Pas d'information de suivi distant pour la branche actuelle.
+Veuillez spécifier une branche avec laquelle fusionner.
+Référez-vous à git-pull(1) pour de plus amples détails.
+
+    git pull <distant> <branche>
+
+Si vous souhaitez indiquer l'information de suivi distant pour cette branche, vous pouvez le faire avec :
+
+    git branch --set-upstream-to=origin/<branche> domob
+
+domoina@domoina-stackerine:~/exercice/domor$ git push
+fatal: La branche courante domob n'a pas de branche amont.
+Pour pousser la branche courante et définir la distante comme amont, utilisez
+
+    git push --set-upstream origin domob
+
+domoina@domoina-stackerine:~/exercice/domor$ git push -u origin domob
+Username for 'https://github.com': domoinaravalison
+Password for 'https://domoinaravalison@github.com': 
+Décompte des objets: 3, fait.
+Delta compression using up to 8 threads.
+Compression des objets: 100% (2/2), fait.
+Écriture des objets: 100% (3/3), 266 bytes | 266.00 KiB/s, fait.
+Total 3 (delta 0), reused 0 (delta 0)
+remote: 
+remote: Create a pull request for 'domob' on GitHub by visiting:
+remote:      https://github.com/domoinaravalison/domor/pull/new/domob
+remote: 
+To https://github.com/domoinaravalison/domor.git
+ * [new branch]      domob -> domob
+La branche 'domob' est paramétrée pour suivre la branche distante 'domob' depuis 'origin'.
+domoina@domoina-stackerine:~/exercice/domor$ git branch
+* domob
+  master
+domoina@domoina-stackerine:~/exercice/domor$ git checkout
+Votre branche est à jour avec 'origin/domob'.
+domoina@domoina-stackerine:~/exercice/domor$ git branch
+* domob
+  master
+domoina@domoina-stackerine:~/exercice/domor$ git checkout master
+Basculement sur la branche 'master'
+Votre branche est à jour avec 'origin/master'.
+domoina@domoina-stackerine:~/exercice/domor$ git merge domor
+merge: domor - pas possible de fusionner ceci
+domoina@domoina-stackerine:~/exercice/domor$ git branch
+  domob
+* master
+domoina@domoina-stackerine:~/exercice/domor$ git merge domob
+Mise à jour d02b670..e925b78
+Fast-forward
+ heyb | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 heyb
+domoina@domoina-stackerine:~/exercice/domor$ git branch
+  domob
+* master
+domoina@domoina-stackerine:~/exercice/domor$ git status
+Sur la branche master
+Votre branche est en avance sur 'origin/master' de 1 commit.
+  (utilisez "git push" pour publier vos commits locaux)
+
+rien à valider, la copie de travail est propre
+domoina@domoina-stackerine:~/exercice/domor$ git push
+Username for 'https://github.com': domoinaravalison 
+Password for 'https://domoinaravalison@github.com': 
+Total 0 (delta 0), reused 0 (delta 0)
+To https://github.com/domoinaravalison/domor.git
+   d02b670..e925b78  master -> master
+domoina@domoina-stackerine:~/exercice/domor$ 
